@@ -1,0 +1,15 @@
+site_name: CoReSSD Documentation
+repo_url: https://github.com/dechowjack/coressd-docs  # TODO: update if repo URL differs
+
+theme:
+  name: material
+
+nav:
+  - Product Overview: index.md
+  - Directory Structure on NASA Discover: discover_structure.md
+  - Algorithm: algorithm.md
+  - Prior Generation: prior_generation.md
+  - Intermediary Processing: intermediary_processing.md
+  - Running Blender: running_blender.md
+  - Known Issues and To-Do: known_issues.md
+  - Function Reference: functions.md
