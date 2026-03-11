@@ -1,6 +1,6 @@
 # CoReSSD Documentation
 
-This repository contains the MkDocs source for the **CoReSSD** (Corrected Remotely Sensed Snow Depth) documentation site, built with the [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme.
+This repository contains the MkDocs source for the **CoReSSD** (*Co*ld *Re*gions *S*nowfall and *S*nowpack *D*ataset) documentation site, built with the [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme.
 
 ## Building Locally
 
