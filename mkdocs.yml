@@ -11,5 +11,6 @@ nav:
   - Prior Generation: prior_generation.md
   - Intermediary Processing: intermediary_processing.md
   - Running Blender: running_blender.md
+  - Output Files: output_files.md
   - Known Issues and To-Do: known_issues.md
   - Function Reference: functions.md
