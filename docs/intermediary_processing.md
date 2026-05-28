@@ -54,24 +54,27 @@ The script sequentially calls:
 
 ### Gaussian Smoother (`csd_smooth_mass_vars.m`)
 
-The `csd_smooth_mass_vars.m` function applies a **Gaussian spatial smoother** to the snowfall and SWE fields. The smoother reduces high-frequency spatial noise in the LIS outputs before they are passed to Blender. This uses the custom `imgaussfilt_nan` function which is basically a clone of the defualt MATLAB `imgaussfilt` that has been updated to handle nan pixels and not break.
+The `csd_smooth_mass_vars.m` function applies a Gaussian spatial smoother to the snowfall and SWE fields before they are passed to Blender. The smoother reduces high-frequency spatial noise in the LIS mass inputs while preserving missing-value masks. It uses the custom `imgaussfilt_nan` helper, which mirrors the behavior of MATLAB `imgaussfilt` but handles `NaN` pixels safely.
 
 <!-- TODO: document smoother kernel parameters (sigma, window size) -->
 <!-- TODO: document any edge/boundary handling at coastlines or domain borders -->
-<!-- TODO: confirm whether smoothing is applied to both Snowf_tavg and SWE_tavg or only one -->
 
 ### Step 2 — Fix NetCDF metadata attributes (`fix_smoothed_attrs.sh`)
 
-After exiting MATLAB, run the Bash metadata-fix script to correct NetCDF attributes on the smoothed output files:
+After exiting MATLAB, run the Bash metadata-fix script to correct NetCDF attributes on the smoothed output files. The script loads NCO on Discover and applies the year-specific attribute fixes with `ncatted`:
 
 ```bash
 bash fix_smoothed_attrs.sh 2016
 ```
 
-This script iterates over the smoothed NetCDF files for the given water year and applies `ncatted` (or equivalent) to update/correct CF-convention metadata attributes (e.g., `units`, `long_name`, `_FillValue`, `grid_mapping`).
+The expected smoothed-input science-variable metadata are:
 
-<!-- TODO: document exactly which attributes are fixed and why they need to be corrected post-MATLAB -->
-<!-- TODO: note any dependency on NCO tools (ncatted, ncrename) that must be loaded as modules on Discover -->
+| File | Variable | Units | Standard name | Long name |
+|---|---|---|---|---|
+| `SWE_tavg.nc` | `SWE_tavg` | `kg m-2` | `liquid_water_content_of_surface_snow` | `snow water equivalent` |
+| `Snowf_tavg.nc` | `Snowf_tavg` | `kg m-2 s-1` | `snowfall_rate` | `snowfall rate` |
+
+This step is required because the MATLAB smoothing step can leave incomplete or incorrect NetCDF attributes. Correcting the smoothed-input metadata before Blender runs makes the generated input files easier to inspect and prevents copied template attributes from propagating into later products.
 
 ### Step 3 — Verify output files
 
@@ -84,7 +87,14 @@ coressd/Blender/SmoothedInputs/WYxxxx/SWE_tavg.nc
 coressd/PrecipScalarFiles/WYxxxx/precip_scalar.nc
 ```
 
-<!-- TODO: document how to verify file integrity (e.g., ncdump -h checks, expected variable shapes) -->
+Basic metadata checks:
+
+```bash
+ncdump -h coressd/Blender/SmoothedInputs/WYxxxx/Snowf_tavg.nc
+ncdump -h coressd/Blender/SmoothedInputs/WYxxxx/SWE_tavg.nc
+```
+
+Confirm that the science variables use the units and names listed above.
 
 ## Repository Structure
 
