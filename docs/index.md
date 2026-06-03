@@ -7,7 +7,7 @@ The *Co*ld *Re*gions *S*nowfall and *S*nowpack *D*ataset (CoReSSD) is a 1 km sno
 - `TEMPORAL COVERAGE`: October 1, 2000 - September 30, 2021
 - `TEMPORAL RESOLUTION`: Daily
 - `SPATIAL COVERAGE`: North America above 30°N
-- `SPATIAL RESOLUTION`: 1 km
+- `SPATIAL RESOLUTION`: 0.01° (nominally 1 km at equator)
 - `DATA FIELD 1`: Snow water equivalent [m]
 - `DATA FIELD 2`: Daily precipitation water-equivalent rate [m day-1]
 
