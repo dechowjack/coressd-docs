@@ -1,5 +1,5 @@
 ## Basic Information
-The *Co*ld *Re*gions *S*nowfall and *S*nowpack *D*ataset (CoReSSD) is a 1 km snow water equivalent and precipitation dataset for North America. CoReSSD covers North America above 30°N for water years 2001-2021. This dataset was produced with funding from NASA Grant #80NSSC22K0585. CoReSSD relies on the `Blender` algorithm (Dechow et al., 2026, Water Resources Research). Blender is a non-linear optimization technique that recomputes the modeled mass and energy balance of the snowpack, constrained by remotely sensed snow cover fraction. Blender requires a prior estimate of the snowpack mass and energy balance.
+The **Co**ld **Re**gions **S**nowfall and **S**nowpack **D**ataset (CoReSSD) is a 1 km snow water equivalent and precipitation dataset for North America. CoReSSD covers North America above 30°N for water years 2001-2021. This dataset was produced with funding from NASA Grant #80NSSC22K0585. CoReSSD relies on the `Blender` algorithm (Dechow et al., 2026, Water Resources Research). Blender is a non-linear optimization technique that recomputes the modeled mass and energy balance of the snowpack, constrained by remotely sensed snow cover fraction. Blender requires a prior estimate of the snowpack mass and energy balance.
 
 <!-- TODO: confirm full product name expansion and tagline with PI -->
 
