@@ -11,7 +11,7 @@ The **Co**ld **Re**gions **S**nowfall and **S**nowpack **D**ataset (CoReSSD) is 
 - `DATA FIELD 1`: Snow water equivalent [m]
 - `DATA FIELD 2`: Daily precipitation water-equivalent rate [m day-1]
 
-The CoReSSD product is gridded at 1 km on the MODIS Sinusoidal Grid. The `MODIS_Sinusoidal.prj` file that contains the projection WKT is available in the top-level CoReSSD repository.
+The CoReSSD product is gridded at 0.01° (nominally 1 km at equator). The netCDF files have an equally spaced 0.01° grid for both latitude and longitude.
 
 <!-- TODO: add specifics to projection -->
 ## Input Data
@@ -34,7 +34,7 @@ The `tavg` field suffix indicates the field is a “time-average value” over t
 
 - `precip_scalar`:	 precipitation scalar value [dimensionless]
 
-The precipitation scalar is an optional input to assist in downscaling the mass inputs. Further documentation for this input is available in Dechow et al., 2026. A generic version of the downscaling algorithm is available in the pyDRADS GitHub repository [link here]. If an input is not provided, the Blender algorithm fills a dummy value of 1, which effectively turns this option off.
+The precipitation scalar is an optional input to assist in downscaling the mass inputs. Further documentation for this input is available in Dechow et al., 2026 (still in review at Water Resources Research). If an input is not provided, the Blender algorithm fills a dummy value of 1, which effectively turns this option off.
 
 
 ## Related Resources

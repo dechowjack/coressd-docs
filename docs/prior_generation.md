@@ -6,7 +6,7 @@ The Blender algorithm requires a land-surface model prior for SWE and snowfall. 
 
 The model prior is generated using **NoahMP version 4.0.1** within the **NASA Land Information System Framework (LISF)**. The open-loop (no data assimilation) run is forced with **MERRA-2** reanalysis meteorology at 1 km spatial resolution over North America.
 
-Outputs are produced by collaborator M. Wrzesien and stored at:
+Outputs are produced by coauthor Melissa Wrzesien and stored at:
 
 ```
 /discover/nobackup/projects/coressd/mwrzesie/runOL/out.OL/SURFACEMODEL/
